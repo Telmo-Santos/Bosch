@@ -1,0 +1,11 @@
+{% if latest_driver_list %}
+    <ul>
+
+        {% for driver in latest_driver_list %}
+            <!--dynamically linking websites-->
+            <li><a href="{% url 'BoschWebsite:driverdetail' driver.id %}">{{ driver.name_text }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No driver available.</p>
+{% endif %}
