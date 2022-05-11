@@ -10,7 +10,7 @@ class Team(models.Model):
     wins = models.IntegerField(default=0)
     poles = models.IntegerField(default=0)
     boss = models.CharField(max_length=100)
-    start_date = models.DateTimeField('date published')
+    start_date = models.DateField('date published')
 
     # Instead of showing Team (1) in shell now it shows e.g. Team McLaren
     # Same in admin website when Deleting (http://127.0.0.1:8000/admin/)
@@ -21,14 +21,14 @@ class Team(models.Model):
 
 
 class Driver(models.Model):
-    name_text = models.CharField(max_length=100)
+    name_text = models.CharField(max_length=100, unique=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, default="", null=True, blank=True)
     age = models.IntegerField(default=0)
     wins = models.IntegerField(default=0)
     poles = models.IntegerField(default=0)
     titles = models.IntegerField(default=0)
-    start_date = models.DateTimeField('date published')
-    driver_image = models.ImageField(upload_to='uploads/')
+    start_date = models.DateField('date published')
+    driver_image = models.CharField(max_length=300)
 
     # Instead of showing Driver (1) in shell now it shows e.g. Driver Lando Norris
     # Same in admin website when Deleting (http://127.0.0.1:8000/admin/)
@@ -44,7 +44,7 @@ class Track(models.Model):
     sector1 = models.TimeField()
     sector2 = models.TimeField()
     sector3 = models.TimeField()
-    length = models.IntegerField(default=0)
+    length = models.FloatField(default=0)
     layout = models.ImageField(upload_to='uploads/')
 
     # Instead of showing Track (1) in shell now it shows e.g. Track Melbourne

@@ -1,11 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1Homepage</title>
+</head>
+<body>
 {% if latest_driver_list %}
     <ul>
 
         {% for driver in latest_driver_list %}
             <!--dynamically linking websites-->
-            <li><a href="{% url 'BoschWebsite:driverdetail' driver.id %}">{{ driver.name_text }}</a></li>
+            <a href="{% url 'BoschWebsite:driverdetail' driver.id %}">{{ driver.name_text }}</a><br>
         {% endfor %}
     </ul>
 {% else %}
     <p>No driver available.</p>
 {% endif %}
+</body>
+</html>
+

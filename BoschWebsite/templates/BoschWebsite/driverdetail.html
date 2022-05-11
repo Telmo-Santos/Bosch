@@ -1,6 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ driver.name_text }} Page</title>
+</head>
+<body>
+
 <h1>{{ driver.name_text }}</h1>
 <ul>
+    <img src="{{ driver.driver_image }}" style="width: 300px; height: 300px">
+
+    <li>Team: {{ driver.team }}</li>
     <li>Age: {{ driver.age }}</li>
     <li>Wins: {{ driver.wins }}</li>
+    <li>Poles: {{ driver.poles }}</li>
+    <li>Titles: {{ driver.titles }}</li>
+    <li>Started: {{ driver.start_date }}</li>
 
 </ul>
+
+</body>
+</html>
+
+
+
+
