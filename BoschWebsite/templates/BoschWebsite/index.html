@@ -1,21 +1,75 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
     <title>F1Homepage</title>
 </head>
 <body>
-{% if latest_driver_list %}
-    <ul>
+<div class="navbar">
+    <div class="symbol-div">
+        <img class="f1-symbol" src="https://upload.wikimedia.org/wikipedia/commons/4/45/F1_logo.svg">
+    </div>
 
-        {% for driver in latest_driver_list %}
-            <!--dynamically linking websites-->
-            <a href="{% url 'BoschWebsite:driverdetail' driver.id %}">{{ driver.name_text }}</a><br>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No driver available.</p>
-{% endif %}
+    <div class="drivermenu">
+        <button class="drivermenubtn">Drivers</button>
+        <div class="dropdown-driver">
+            {% if latest_driver_list %}
+                {% for driver in latest_driver_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:driverdetail' driver.id %}">
+                        <button class="driverbtn">
+                            {{ driver.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No driver available.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="teammenu">
+        <button class="teammenubtn">Teams</button>
+        <div class="dropdown-team">
+            {% if latest_team_list %}
+                {% for team in latest_team_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
+                        <button class="teambtn">
+                            {{ team.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No Team available.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="trackmenu">
+        <button class="trackmenubtn">Tracks</button>
+        <div class="dropdown-track">
+            {% if latest_track_list %}
+                {% for track in latest_track_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:track' track.id %}">
+                        <button class="trackbtn">
+                            {{ track.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No Track available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="overviewmenu">
+        <button class="overviewmenubtn">Overview</button>
+    </div>
+
+</div>
 </body>
 </html>
 

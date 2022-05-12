@@ -6,7 +6,7 @@ from django.db import models
 # Saving Data of a Team
 class Team(models.Model):
     name_text = models.CharField(max_length=50)
-    symbol = models.ImageField(upload_to='uploads/')
+    symbol = models.CharField(max_length=300)
     wins = models.IntegerField(default=0)
     poles = models.IntegerField(default=0)
     boss = models.CharField(max_length=100)
@@ -45,7 +45,7 @@ class Track(models.Model):
     sector2 = models.TimeField()
     sector3 = models.TimeField()
     length = models.FloatField(default=0)
-    layout = models.ImageField(upload_to='uploads/')
+    layout = models.CharField(max_length=300)
 
     # Instead of showing Track (1) in shell now it shows e.g. Track Melbourne
     # Same in admin website when Deleting (http://127.0.0.1:8000/admin/)

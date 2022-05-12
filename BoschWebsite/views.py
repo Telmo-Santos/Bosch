@@ -1,28 +1,48 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, Http404
-from django.template import loader
-from .models import Driver
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views import generic
+from django.urls import reverse
+from .models import Team, Driver, Track
 
 
 # Create your views here.
+
 def index(request):
-    latest_driver_list = Driver.objects.order_by('name_text')
+    # Here we are ordering the drivers by their team
+    latest_driver_list = Driver.objects.order_by('team')
+    latest_team_list = Team.objects.order_by('name_text')
+    latest_track_list = Track.objects.order_by('name_text')
 
     # context is here so that we can access variables in html
     context = {
         'latest_driver_list': latest_driver_list,
+        'latest_team_list': latest_team_list,
+        'latest_track_list': latest_track_list,
     }
     return render(request, 'BoschWebsite/index.html', context)
 
 
-# return HttpResponse("Hello World. You´re at the BoschWebsite index.")
+# Details about the Drivers are shown here
+class DriverDetail(generic.DetailView):
+    model = Driver
+    template_name = 'BoschWebsite/driverdetail.html'
 
 
-# Details about Driver are shown here
-# If Driver does not exist, Exception is thrown
-def driverdetail(request, driver_id):
-    driver = get_object_or_404(Driver, pk=driver_id)
-    return render(request, 'BoschWebsite/driverdetail.html', {'driver': driver})
+# Details about the Teams are shown here
+class TeamDetail(generic.DetailView):
+    model = Team
+    template_name = 'BoschWebsite/teamdetail.html'
+
+
+# Details about the Tracks are shown here
+class TrackDetail(generic.DetailView):
+    model = Track
+    template_name = 'BoschWebsite/track.html'
+
+
+# Need static File for css to work
+def css(request):
+    return render(request, 'BoschWebsite/index.html')
 
 
 # From tutorial
