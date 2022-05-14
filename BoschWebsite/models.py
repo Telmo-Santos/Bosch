@@ -9,8 +9,13 @@ class Team(models.Model):
     symbol = models.CharField(max_length=300)
     wins = models.IntegerField(default=0)
     poles = models.IntegerField(default=0)
+    titles = models.IntegerField(default=0)
+    titles_drivers = models.IntegerField(default=0)
+    titles_constructors = models.IntegerField(default=0)
     boss = models.CharField(max_length=100)
-    start_date = models.DateField('date published')
+    start_date = models.DateField(auto_now_add=False, auto_now=False)
+    boss_image = models.CharField(max_length=300, default=0)
+
 
     # Instead of showing Team (1) in shell now it shows e.g. Team McLaren
     # Same in admin website when Deleting (http://127.0.0.1:8000/admin/)
@@ -27,7 +32,7 @@ class Driver(models.Model):
     wins = models.IntegerField(default=0)
     poles = models.IntegerField(default=0)
     titles = models.IntegerField(default=0)
-    start_date = models.DateField('date published')
+    start_date = models.DateField(auto_now_add=False, auto_now=False)
     driver_image = models.CharField(max_length=300)
 
     # Instead of showing Driver (1) in shell now it shows e.g. Driver Lando Norris

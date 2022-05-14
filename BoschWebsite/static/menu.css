@@ -1,0 +1,189 @@
+p {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.navbar {
+    height: auto;
+    background-color: #DC143C;
+    border-radius: 10px;
+    display: flex;
+}
+
+.symbol-div {
+    background-color: white;
+    width: 200px;
+    height: 100px;
+}
+
+.f1-symbol {
+    width: 200px;
+    height: auto;
+    border-radius: 10%;
+}
+
+.drivermenu {
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.drivermenubtn {
+    background-color: transparent;
+    border-color: white;
+    border-radius: 20px;
+    color: white;
+    width: 150px;
+    height: 50px;
+}
+
+.dropdown-driver {
+    display: none;
+    position: absolute;
+    background-color: #DC143C;
+    color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-driver a:hover {
+    background-color: #DC143C;
+    color: white;
+}
+
+.drivermenu:hover .dropdown-driver {
+    display: block;
+}
+
+.drivermenu:hover .drivermenubtn {
+    background-color: #DC143C;
+}
+
+
+.driverbtn {
+    text-decoration: none;
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.teammenu {
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.teammenubtn {
+    background-color: transparent;
+    border-color: white;
+    border-radius: 20px;
+    color: white;
+    width: 150px;
+    height: 50px;
+}
+
+.dropdown-team {
+    display: none;
+    position: absolute;
+    background-color: #DC143C;
+    color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-team a:hover {
+    background-color: #DC143C;
+    color: white;
+}
+
+.teammenu:hover .dropdown-team {
+    display: block;
+}
+
+.teammenu:hover .teammenubtn {
+    background-color: #DC143C;
+}
+
+.teambtn {
+    text-decoration: none;
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.trackmenu {
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.trackmenubtn {
+    background-color: transparent;
+    border-color: white;
+    border-radius: 20px;
+    color: white;
+    width: 150px;
+    height: 50px;
+}
+
+.dropdown-track {
+    display: none;
+    position: absolute;
+    background-color: #DC143C;
+    color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-track a:hover {
+    background-color: #DC143C;
+    color: white;
+}
+
+.trackmenu:hover .dropdown-track {
+    display: block;
+}
+
+.trackmenu:hover .trackmenubtn {
+    background-color: #DC143C;
+}
+
+.trackbtn {
+    text-decoration: none;
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.overviewmenu {
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.overviewmenubtn {
+    background-color: transparent;
+    border-color: white;
+    border-radius: 20px;
+    color: white;
+    width: 150px;
+    height: 50px;
+}

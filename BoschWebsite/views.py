@@ -10,8 +10,10 @@ from .models import Team, Driver, Track
 def index(request):
     # Here we are ordering the drivers by their team
     latest_driver_list = Driver.objects.order_by('team')
-    latest_team_list = Team.objects.order_by('name_text')
-    latest_track_list = Track.objects.order_by('name_text')
+    # Ordering Teams by number of wins (descending)
+    latest_team_list = Team.objects.order_by('-wins')
+    # Ordering Tracks by their schedule in 2021
+    latest_track_list = Track.objects.order_by('id')
 
     # context is here so that we can access variables in html
     context = {
@@ -40,7 +42,7 @@ class TrackDetail(generic.DetailView):
     template_name = 'BoschWebsite/track.html'
 
 
-# Need static File for css to work
+# Static file needed for css to work
 def css(request):
     return render(request, 'BoschWebsite/index.html')
 

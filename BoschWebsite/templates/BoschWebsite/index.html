@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}">
     <title>F1Homepage</title>
 </head>
-<body>
+<body style="width: 100%; height: 100%; overflow-x: hidden">
 <div class="navbar">
     <div class="symbol-div">
         <img class="f1-symbol" src="https://upload.wikimedia.org/wikipedia/commons/4/45/F1_logo.svg">
@@ -37,7 +38,7 @@
                 {% for team in latest_team_list %}
                     <!--dynamically linking websites-->
                     <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
-                        <button class="teambtn">
+                        <button class="teambtn" style="cursor: pointer">
                             {{ team.name_text }}
                         </button>
                     </a>
@@ -54,7 +55,7 @@
                 {% for track in latest_track_list %}
                     <!--dynamically linking websites-->
                     <a href="{% url 'BoschWebsite:track' track.id %}">
-                        <button class="trackbtn">
+                        <button class="trackbtn" style="cursor: pointer">
                             {{ track.name_text }}
                         </button>
                     </a>
@@ -66,7 +67,7 @@
     </div>
 
     <div class="overviewmenu">
-        <button class="overviewmenubtn">Overview</button>
+        <button class="overviewmenubtn" style="cursor: pointer">Overview</button>
     </div>
 
 </div>
@@ -78,40 +79,87 @@
             <!--dynamically linking websites-->
             {% if team.name_text == "McLaren" %}
                 <div class="homepageteam"
-                     style="background: linear-gradient(to right, #ff8000 0%, #47c7fc 100%);position: relative">
+                     style="max-height:400px; background: linear-gradient(to right, #ff8000 0%, #47c7fc 100%); border-image-source: linear-gradient(to left, #ff8000 0%, #47c7fc 100%)">
 
             {% elif team.name_text == "Mercedes" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #00d2be 0%, #c6c6c6 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #00d2be 0%, #c6c6c6 100%); border-image-source: linear-gradient(to left, #00d2be 0%, #c6c6c6 100%)">
 
             {% elif team.name_text == "Ferrari" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #dc0000 0%, #111111 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #dc0000 0%, #111111 100%); border-image-source: linear-gradient(to left, #dc0000 0%, #111111 100%)">
 
             {% elif team.name_text == "Red Bull Racing" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #0600ef 0%, #ffc800 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #0600ef 0%, #ffc800 100%); border-image-source: linear-gradient(to left, #0600ef 0%, #ffc800 100%)">
 
             {% elif team.name_text == "Alpine" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #0090ff 0%, #fd4bc7 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #0090ff 0%, #fd4bc7 100%); border-image-source: linear-gradient(to left, #0090ff 0%, #fd4bc7 100%)">
 
             {% elif team.name_text == "Haas" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #ffffff 0%, #ed1a3b 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #ed1a3b 0%, #ffffff 100%); border-image-source: linear-gradient(to left, #ed1a3b 0%, #ffffff 100%)">
 
             {% elif team.name_text == "Aston Martin" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #00594f 0%, #cedc00 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #00594f 0%, #cedc00 100%); border-image-source: linear-gradient(to left, #00594f 0%, #cedc00 100%)">
 
             {% elif team.name_text == "AlphaTauri" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #00293f 0%, #f1f3f4 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #00293f 0%, #f1f3f4 100%); border-image-source: linear-gradient(to left, #00293f 0%, #f1f3f4 100%)">
 
             {% elif team.name_text == "Alfa Romeo" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #981e32 0%, #f9f9f8 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #981e32 0%, #f9f9f8 100%); border-image-source: linear-gradient(to left, #981e32 0%, #f9f9f8 100%)">
 
             {% elif team.name_text == "Williams" %}
-                <div class="homepageteam" style="background: linear-gradient(to right, #041e42 0%, #00a3e0 100%)">
+                <div class="homepageteam"
+                     style="max-height:400px; background: linear-gradient(to right, #041e42 0%, #00a3e0 100%); border-image-source: linear-gradient(to left, #041e42 0%, #00a3e0 100%)">
 
             {% endif %}
 
-        <ul style="color: white; font-size: 200%">{{ team.name_text }}</ul>
-        <img src="{{ team.symbol }}" style="width: 200px; height: 100px; ">
-        <p>Wins: {{ team.wins }}</p>
+        <p class="teamname">{{ team.name_text }}</p>
+        <div class="divimage">
+            <img src="{{ team.symbol }}" style="width: 200px; height: 100px; ">
+        </div><br><br><br>
+        <div class="divboss">
+            <img src="{{ team.boss_image }}" style="width: 200px; height: 150px; ">
+            <p>Boss: {{ team.boss }}</p>
+        </div>
+        <div class="divdivinfo" style="bottom: 300px;">
+            <div class="divinfo" style="width: 100px">
+                <label class="labelinfo">Wins</label>
+                <p class="teaminfo">{{ team.wins }} Wins</p>
+            </div>
+            <div class="divinfo" style="width: 120px; margin-left: 150px; margin-top: -44px">
+                <label class="labelinfo">Pole Positions</label>
+                <p class="teaminfo">{{ team.poles }} Poles</p>
+            </div>
+        </div>
+        <div class="divdivinfo" style=" bottom: 285px">
+            <div class="divinfo" style="width: 125px">
+                <label class="labelinfo">First Race</label>
+                <p class="teaminfo">{{ team.start_date }}</p>
+            </div>
+            <div class="divinfo" style="width: 100px; margin-left: 150px; margin-top: -44px">
+                <label class="labelinfo">Titles</label>
+                <p class="teaminfo">{{ team.titles }} Titles</p>
+            </div>
+        </div>
+        <div class="divdivinfo" style="bottom: 260px">
+            <div class="divinfo" style="width: 200px">
+                <label class="labelinfo">Drivers-Championships</label>
+                <p class="teaminfo">{{ team.titles_drivers }} Drivers Titles</p>
+            </div>
+            <div class="divinfo" style="width: 250px; margin-left: 230px; margin-top: -44px">
+                <label class="labelinfo">Constructors-Championships</label>
+                <p class="teaminfo">{{ team.titles_constructors }} Constructors
+                    Titles</p>
+            </div>
+
+        </div>
+        </div>
         </div>
 
         {% endfor %}
