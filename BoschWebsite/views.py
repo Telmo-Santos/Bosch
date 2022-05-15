@@ -6,7 +6,6 @@ from .models import Team, Driver, Track
 
 
 # Create your views here.
-
 def index(request):
     # Here we are ordering the drivers by their team
     latest_driver_list = Driver.objects.order_by('team')
@@ -21,7 +20,12 @@ def index(request):
         'latest_team_list': latest_team_list,
         'latest_track_list': latest_track_list,
     }
-    return render(request, 'BoschWebsite/index.html', context)
+    return render(request, 'BoschWebsite/index.html')
+
+
+# Details about the Drivers are shown here
+class IndexDetail(generic.DetailView):
+    template_name = 'BoschWebsite/index.html'
 
 
 # Details about the Drivers are shown here
@@ -45,14 +49,3 @@ class TrackDetail(generic.DetailView):
 # Static file needed for css to work
 def css(request):
     return render(request, 'BoschWebsite/index.html')
-
-
-# From tutorial
-def results(request, driver_id):
-    response = "You´re looking at the response of Driver %s."
-    return HttpResponse(response % driver_id)
-
-
-# From tutorial
-def vote(request, driver_id):
-    return HttpResponse("You´re voting on Driver %s." % driver_id)

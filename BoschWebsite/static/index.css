@@ -1,28 +1,13 @@
-.teaminfo {
-    position: relative;
-    bottom: 30px;
-    left: 20px;
+.homepageteam {
+    max-height: 400px;
+    border: 5px solid;
+    border-image-slice: 1;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
-.labelinfo {
-    font-size: 20px;
-    position: relative;
-    overflow: hidden;
-    color: white;
-    display: inline-block;
-    bottom: 10px;
-}
-
-.divinfo {
-    border: 2px solid;
-    border-radius: 10px;
-    height: 40px;
-    border-top-color: transparent;
-}
-
-.divdivinfo {
-    position: relative;
-    left: 250px;
+.homepageteam:hover {
+    transform: translateY(-15px);
 }
 
 .teamname {
@@ -45,12 +30,29 @@
     bottom: 70px;
 }
 
-.homepageteam {
-    border: 5px solid;
-    border-image-slice: 1;
-    margin-top: 20px;
+.divdivinfo {
+    position: relative;
+    left: 250px;
 }
 
-.homepageteam:hover {
-    transform: translateY(-15px);
+.divinfo {
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 40px;
+    border-top-color: transparent;
+}
+
+.labelinfo {
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    display: inline-block;
+    bottom: 10px;
+}
+
+.teaminfo {
+    position: relative;
+    bottom: 30px;
+    left: 20px;
 }

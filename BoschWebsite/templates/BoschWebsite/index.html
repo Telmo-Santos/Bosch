@@ -11,7 +11,8 @@
 <body style="width: 100%; height: 100%; overflow-x: hidden">
 <div class="navbar">
     <div class="symbol-div">
-        <img class="f1-symbol" src="https://upload.wikimedia.org/wikipedia/commons/4/45/F1_logo.svg">
+        <a href="{% url 'BoschWebsite:index' %}">
+            <img class="f1-symbol" src="https://upload.wikimedia.org/wikipedia/commons/4/45/F1_logo.svg"></a>
     </div>
 
     <div class="drivermenu">
@@ -78,44 +79,54 @@
         {% for team in latest_team_list %}
             <!--dynamically linking websites-->
             {% if team.name_text == "McLaren" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #ff8000 0%, #47c7fc 100%); border-image-source: linear-gradient(to left, #ff8000 0%, #47c7fc 100%)">
+                     style="background: linear-gradient(to right, #ff8000 0%, #47c7fc 100%); border-image-source: linear-gradient(to left, #ff8000 0%, #47c7fc 100%)">
 
             {% elif team.name_text == "Mercedes" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #00d2be 0%, #c6c6c6 100%); border-image-source: linear-gradient(to left, #00d2be 0%, #c6c6c6 100%)">
+                     style="background: linear-gradient(to right, #00d2be 0%, #c6c6c6 100%); border-image-source: linear-gradient(to left, #00d2be 0%, #c6c6c6 100%)">
 
             {% elif team.name_text == "Ferrari" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #dc0000 0%, #111111 100%); border-image-source: linear-gradient(to left, #dc0000 0%, #111111 100%)">
+                     style="background: linear-gradient(to right, #dc0000 0%, #111111 100%); border-image-source: linear-gradient(to left, #dc0000 0%, #111111 100%)">
 
             {% elif team.name_text == "Red Bull Racing" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #0600ef 0%, #ffc800 100%); border-image-source: linear-gradient(to left, #0600ef 0%, #ffc800 100%)">
+                     style="background: linear-gradient(to right, #0600ef 0%, #ffc800 100%); border-image-source: linear-gradient(to left, #0600ef 0%, #ffc800 100%)">
 
             {% elif team.name_text == "Alpine" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #0090ff 0%, #fd4bc7 100%); border-image-source: linear-gradient(to left, #0090ff 0%, #fd4bc7 100%)">
+                     style="background: linear-gradient(to right, #0090ff 0%, #fd4bc7 100%); border-image-source: linear-gradient(to left, #0090ff 0%, #fd4bc7 100%)">
 
             {% elif team.name_text == "Haas" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #ed1a3b 0%, #ffffff 100%); border-image-source: linear-gradient(to left, #ed1a3b 0%, #ffffff 100%)">
+                     style="background: linear-gradient(to right, #ed1a3b 0%, #ffffff 100%); border-image-source: linear-gradient(to left, #ed1a3b 0%, #ffffff 100%)">
 
             {% elif team.name_text == "Aston Martin" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #00594f 0%, #cedc00 100%); border-image-source: linear-gradient(to left, #00594f 0%, #cedc00 100%)">
+                     style="background: linear-gradient(to right, #00594f 0%, #cedc00 100%); border-image-source: linear-gradient(to left, #00594f 0%, #cedc00 100%)">
 
             {% elif team.name_text == "AlphaTauri" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #00293f 0%, #f1f3f4 100%); border-image-source: linear-gradient(to left, #00293f 0%, #f1f3f4 100%)">
+                     style="background: linear-gradient(to right, #00293f 0%, #f1f3f4 100%); border-image-source: linear-gradient(to left, #00293f 0%, #f1f3f4 100%)">
 
             {% elif team.name_text == "Alfa Romeo" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #981e32 0%, #f9f9f8 100%); border-image-source: linear-gradient(to left, #981e32 0%, #f9f9f8 100%)">
+                     style="background: linear-gradient(to right, #981e32 0%, #f9f9f8 100%); border-image-source: linear-gradient(to left, #981e32 0%, #f9f9f8 100%)">
 
             {% elif team.name_text == "Williams" %}
+                <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
                 <div class="homepageteam"
-                     style="max-height:400px; background: linear-gradient(to right, #041e42 0%, #00a3e0 100%); border-image-source: linear-gradient(to left, #041e42 0%, #00a3e0 100%)">
+                     style="background: linear-gradient(to right, #041e42 0%, #00a3e0 100%); border-image-source: linear-gradient(to left, #041e42 0%, #00a3e0 100%)">
 
             {% endif %}
 
@@ -161,6 +172,7 @@
         </div>
         </div>
         </div>
+        </a>
 
         {% endfor %}
     {% else %}

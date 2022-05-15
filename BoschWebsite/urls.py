@@ -11,5 +11,4 @@ urlpatterns = [
     path('<int:pk>/Team/', views.TeamDetail.as_view(), name='teamdetail'),
     # /BoschWebsite/2/Track/
     path('<int:pk>/Track/', views.TrackDetail.as_view(), name='track'),
-
 ]
