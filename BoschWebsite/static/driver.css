@@ -1,0 +1,22 @@
+.divinfo {
+    border: 10px solid black;
+    border-radius: 10px;
+    height: 40px;
+    border-top-color: transparent;
+}
+
+.driverdetaillabel {
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    display: inline-block;
+    bottom: 10px;
+}
+
+.driverinfo {
+    color: black;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}

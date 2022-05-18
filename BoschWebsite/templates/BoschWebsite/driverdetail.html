@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}">
-    <title>{{ driver.name_text }} Page</title>
+
+    <title>{{ driver.name_text }}</title>
 </head>
 <body style="width: 100%; height: 100%; overflow-x: hidden">
 <div class="navbar">
@@ -71,18 +73,44 @@
     </div>
 
 </div>
+
 <h1>{{ driver.name_text }}</h1>
-<ul>
+<div>
     <img src="{{ driver.driver_image }}" style="width: 300px; height: 300px; border-radius: 20px">
+    <div style="display: flex; position: relative; left: 400px; bottom: 300px; width: 300px">
+        <div class="divinfo" style="width: 150px; margin-right:10px;">
+            <label class="driverdetaillabel" style="position:relative; bottom: 10px; left: 3px">Team</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 15px; left: 15px">{{ driver.team }}</p>
+        </div>
+        <div class="divinfo" style="width: 100px;">
+            <label class="driverdetaillabel" style="position:relative; bottom: 10px; left: 3px">Wins</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 15px; left: 15px">{{ driver.wins }}</p>
+        </div>
+    </div>
+    <div style="display: flex; position: relative; left: 400px; bottom: 300px; width: 200px; margin-top: 20px">
+        <div class="divinfo" style="width: 100px; margin-right:10px;">
+            <label class="driverdetaillabel" style="position:relative; bottom: 10px; left: 3px">Poles</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 15px; left: 15px">{{ driver.poles }}</p>
+        </div>
+        <div class="divinfo" style="width: 100px;">
+            <label class="driverdetaillabel" style="position:relative; bottom: 10px; left: 3px">Titles</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 15px; left: 15px">{{ driver.titles }}</p>
+        </div>
+    </div>
 
-    <li>Team: {{ driver.team }}</li>
-    <li>Age: {{ driver.age }}</li>
-    <li>Wins: {{ driver.wins }}</li>
-    <li>Poles: {{ driver.poles }}</li>
-    <li>Titles: {{ driver.titles }}</li>
-    <li>Started: {{ driver.start_date }}</li>
+    <div style="display: flex; position: relative; left: 400px; bottom: 300px; width: 200px; margin-top: 20px">
+        <div class="divinfo" style="width: 200px; margin-right:10px;">
+            <label class="driverdetaillabel" style="position:relative; bottom: 10px; left: 3px">First Race</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 15px; left: 15px">{{ driver.start_date }}</p>
+        </div>
+    </div>
 
-</ul>
+</div>
 
 </body>
 </html>
