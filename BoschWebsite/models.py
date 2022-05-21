@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 # Create your models here.
@@ -15,7 +16,6 @@ class Team(models.Model):
     boss = models.CharField(max_length=100)
     start_date = models.DateField(auto_now_add=False, auto_now=False)
     boss_image = models.CharField(max_length=300, default=0)
-
 
     # Instead of showing Team (1) in shell now it shows e.g. Team McLaren
     # Same in admin website when Deleting (http://127.0.0.1:8000/admin/)

@@ -1,11 +1,129 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'driver.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}">
     <title>{{ track.name_text }} Page</title>
 </head>
-<body>
+<body style="width: 100%; height: 100%; overflow-x: hidden">
+<div class="navbar">
+    <div class="symbol-div">
+        <a href="{% url 'BoschWebsite:index' %}">
+            <img class="f1-symbol" src="https://upload.wikimedia.org/wikipedia/commons/4/45/F1_logo.svg"></a>
+    </div>
+
+    <div class="drivermenu">
+        <button class="drivermenubtn">Drivers</button>
+        <div class="dropdown-driver">
+            {% if latest_driver_list %}
+                {% for driver in latest_driver_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:driverdetail' driver.id %}">
+                        <button class="driverbtn">
+                            {{ driver.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No driver available.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="teammenu">
+        <button class="teammenubtn">Teams</button>
+        <div class="dropdown-team">
+            {% if latest_team_list %}
+                {% for team in latest_team_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
+                        <button class="teambtn" style="cursor: pointer">
+                            {{ team.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No Team available.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="trackmenu">
+        <button class="trackmenubtn">Tracks</button>
+        <div class="dropdown-track">
+            {% if latest_track_list %}
+                {% for track in latest_track_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:track' track.id %}">
+                        <button class="trackbtn" style="cursor: pointer">
+                            {{ track.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No Track available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="overviewmenu">
+        <button class="overviewmenubtn" style="cursor: pointer">Overview</button>
+    </div>
+
+</div>
+
 <h1>{{ track.name_text }}</h1>
+<div>
+    <img src="{{ track.layout }}" style="width: 500px; height: 300px; border-radius: 20px">
+    <div style="display: flex; position: relative; left: 525px; bottom: 300px; width: 300px">
+        <div class="divinfo" style="width: 150px; margin-right:10px;">
+            <label class="driverdetaillabel"
+                   style="color: black; position:relative; bottom: 10px; left: 3px">Length</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 20px; left: 15px">{{ track.length }} km</p>
+        </div>
+        <div class="divinfo" style="width: 100px;">
+            <label class="driverdetaillabel"
+                   style="color: black; position:relative; bottom: 10px; left: 3px">Laps</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 20px; left: 15px">{{ track.laps }}</p>
+        </div>
+    </div>
+    <div style="display: flex; position: relative; left: 525px; bottom: 300px; width: 300px; margin-top: 20px">
+        <div class="divinfo" style="width: 100px; margin-right:10px;">
+            <label class="driverdetaillabel"
+                   style="color: black;  position:relative; bottom: 10px; left: 3px">Lap Record</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 20px; left: 15px">{{ track.lapRecord|time:"i:s" }}
+                min</p>
+        </div>
+        <div class="divinfo" style="width: 100px;">
+            <label class="driverdetaillabel"
+                   style="color: black;  position:relative; bottom: 10px; left: 3px">Sector 1</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 20px; left: 15px">{{ track.sector1|time:"i:s" }}
+                sec</p>
+        </div>
+    </div>
+    <div style="display: flex; position: relative; left: 525px; bottom: 300px; width: 400px; margin-top: 20px">
+        <div class="divinfo" style="width: 130px; margin-right:10px;">
+            <label class="driverdetaillabel"
+                   style="color: black;  position:relative; bottom: 10px; left: 3px">Sector 2</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 20px; left: 15px">{{ track.sector2|time:"i:s" }}
+                sec</p>
+        </div>
+        <div class="divinfo" style="width: 160px;">
+            <label class="driverdetaillabel"
+                   style="color: black;  position:relative; bottom: 10px; left: 3px">Sector 3</label>
+            <p class="driverinfo"
+               style="color: black; position: relative; bottom: 20px; left: 15px">{{ track.sector3|time:"i:s" }}
+                sec</p>
+        </div>
+    </div>
+</div>
 
 
 </body>
