@@ -29,7 +29,7 @@
                     </a>
                 {% endfor %}
             {% else %}
-                <p>No driver available.</p>
+                <p>No Driver available</p>
             {% endif %}
         </div>
     </div>
@@ -46,7 +46,7 @@
                     </a>
                 {% endfor %}
             {% else %}
-                <p>No Team available.</p>
+                <p>No Team available</p>
             {% endif %}
         </div>
     </div>
@@ -63,13 +63,15 @@
                     </a>
                 {% endfor %}
             {% else %}
-                <p>No Track available.</p>
+                <p>No Track available</p>
             {% endif %}
         </div>
     </div>
 
     <div class="overviewmenu">
-        <button class="overviewmenubtn" style="cursor: pointer">Overview</button>
+        <a href="{% url 'BoschWebsite:overview' %}">
+            <button class="overviewmenubtn" style="cursor: pointer">Overview</button>
+        </a>
     </div>
 
 </div>

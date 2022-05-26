@@ -1,0 +1,221 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}">
+    <title>Overview</title>
+</head>
+<body style="width: 100%; height: 100%; overflow-x: hidden">
+<div class="navbar">
+    <div class="symbol-div">
+        <a href="{% url 'BoschWebsite:index' %}">
+            <img class="f1-symbol" src="https://upload.wikimedia.org/wikipedia/commons/4/45/F1_logo.svg"></a>
+    </div>
+
+    <div class="drivermenu">
+        <button class="drivermenubtn">Drivers</button>
+        <div class="dropdown-driver">
+            {% if latest_driver_list %}
+                {% for driver in latest_driver_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:driverdetail' driver.id %}">
+                        <button class="driverbtn">
+                            {{ driver.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No Driver available</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="teammenu">
+        <button class="teammenubtn">Teams</button>
+        <div class="dropdown-team">
+            {% if latest_team_list %}
+                {% for team in latest_team_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:teamdetail' team.id %}">
+                        <button class="teambtn" style="cursor: pointer">
+                            {{ team.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No Team available</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="trackmenu">
+        <button class="trackmenubtn">Tracks</button>
+        <div class="dropdown-track">
+            {% if latest_track_list %}
+                {% for track in latest_track_list %}
+                    <!--dynamically linking websites-->
+                    <a href="{% url 'BoschWebsite:track' track.id %}">
+                        <button class="trackbtn" style="cursor: pointer">
+                            {{ track.name_text }}
+                        </button>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No Track available</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="overviewmenu">
+        <button class="overviewmenubtn" style="cursor: pointer">Overview</button>
+    </div>
+
+</div>
+
+
+<table>
+    <h2>Teams</h2>
+    <th scope="col" style="background-color:#96D1CD;"><a>Name</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Wins</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Poles</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Championships</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Drivers Championships</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Constructors Championships</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>First Race</a></th>
+
+    <tbody>
+    {% if latest_team_list %}
+        {% for team in latest_team_list %}
+            {% if team.name_text == "McLaren" %}
+                <tr style="background: linear-gradient(to right, #ff8000 0%, #47c7fc 100%); border-image-source: linear-gradient(to left, #ff8000 0%, #47c7fc 100%)">
+
+                    {% elif team.name_text == "Mercedes" %}
+                <tr style="background: linear-gradient(to right, #00d2be 0%, #c6c6c6 100%); border-image-source: linear-gradient(to left, #00d2be 0%, #c6c6c6 100%)">
+
+                    {% elif team.name_text == "Ferrari" %}
+                <tr style="background: linear-gradient(to right, #dc0000 0%, #111111 100%); border-image-source: linear-gradient(to left, #dc0000 0%, #111111 100%)">
+
+                    {% elif team.name_text == "Red Bull Racing" %}
+                <tr style="background: linear-gradient(to right, #0600ef 0%, #ffc800 100%); border-image-source: linear-gradient(to left, #0600ef 0%, #ffc800 100%)">
+
+                    {% elif team.name_text == "Alpine" %}
+                <tr style="background: linear-gradient(to right, #0090ff 0%, #fd4bc7 100%); border-image-source: linear-gradient(to left, #0090ff 0%, #fd4bc7 100%)">
+
+                    {% elif team.name_text == "Haas" %}
+                <tr style="background: linear-gradient(to right, #ed1a3b 0%, #ffffff 100%); border-image-source: linear-gradient(to left, #ed1a3b 0%, #ffffff 100%)">
+
+                    {% elif team.name_text == "Aston Martin" %}
+                <tr style="background: linear-gradient(to right, #00594f 0%, #cedc00 100%); border-image-source: linear-gradient(to left, #00594f 0%, #cedc00 100%)">
+
+                    {% elif team.name_text == "AlphaTauri" %}
+                <tr style="background: linear-gradient(to right, #00293f 0%, #f1f3f4 100%); border-image-source: linear-gradient(to left, #00293f 0%, #f1f3f4 100%)">
+
+                    {% elif team.name_text == "Alfa Romeo" %}
+                <tr style="background: linear-gradient(to right, #981e32 0%, #f9f9f8 100%); border-image-source: linear-gradient(to left, #981e32 0%, #f9f9f8 100%)">
+
+                    {% elif team.name_text == "Williams" %}
+                <tr style="background: linear-gradient(to right, #041e42 0%, #00a3e0 100%); border-image-source: linear-gradient(to left, #041e42 0%, #00a3e0 100%)">
+
+            {% endif %}
+        <th scope="row"
+            style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ team.name_text }}</th>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ team.wins }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ team.poles }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ team.titles }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ team.titles_drivers }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ team.titles_constructors }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ team.start_date }}</td>
+
+        </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+
+<table>
+    <h2>Drivers</h2>
+    <th scope="col" style="background-color:#96D1CD;"><a>Name</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Team</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Age</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Poles</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Wins</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Titles</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>First Race</a></th>
+
+    <tbody>
+    {% if latest_driver_list %}
+        {% for driver in latest_driver_list %}
+            {% if driver.team == "McLaren" %}
+                <tr style="background: linear-gradient(to right, #ff8000 0%, #47c7fc 100%); border-image-source: linear-gradient(to left, #ff8000 0%, #47c7fc 100%)">
+
+                    {% elif driver.team == "Mercedes" %}
+                <tr style="background: linear-gradient(to right, #00d2be 0%, #c6c6c6 100%); border-image-source: linear-gradient(to left, #00d2be 0%, #c6c6c6 100%)">
+
+                    {% elif driver.team == "Ferrari" %}
+                <tr style="background: linear-gradient(to right, #dc0000 0%, #111111 100%); border-image-source: linear-gradient(to left, #dc0000 0%, #111111 100%)">
+
+                    {% elif driver.team == "Red Bull Racing" %}
+                <tr style="background: linear-gradient(to right, #0600ef 0%, #ffc800 100%); border-image-source: linear-gradient(to left, #0600ef 0%, #ffc800 100%)">
+
+                    {% elif driver.team == "Alpine" %}
+                <tr style="background: linear-gradient(to right, #0090ff 0%, #fd4bc7 100%); border-image-source: linear-gradient(to left, #0090ff 0%, #fd4bc7 100%)">
+
+                    {% elif driver.team == "Haas" %}
+                <tr style="background: linear-gradient(to right, #ed1a3b 0%, #ffffff 100%); border-image-source: linear-gradient(to left, #ed1a3b 0%, #ffffff 100%)">
+
+                    {% elif driver.team == "Aston Martin" %}
+                <tr style="background: linear-gradient(to right, #00594f 0%, #cedc00 100%); border-image-source: linear-gradient(to left, #00594f 0%, #cedc00 100%)">
+
+                    {% elif driver.team == "AlphaTauri" %}
+                <tr style="background: linear-gradient(to right, #00293f 0%, #f1f3f4 100%); border-image-source: linear-gradient(to left, #00293f 0%, #f1f3f4 100%)">
+
+                    {% elif driver.team == "Alfa Romeo" %}
+                <tr style="background: linear-gradient(to right, #981e32 0%, #f9f9f8 100%); border-image-source: linear-gradient(to left, #981e32 0%, #f9f9f8 100%)">
+
+                    {% elif driver.team == "Williams" %}
+                <tr style="background: linear-gradient(to right, #041e42 0%, #00a3e0 100%); border-image-source: linear-gradient(to left, #041e42 0%, #00a3e0 100%)">
+
+            {% endif %}
+        <th scope="row"
+            style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ driver.name_text }}</th>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ driver.team }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ driver.age }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ driver.poles }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ driver.wins }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ driver.titles }}</td>
+        <td style=" color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">{{ driver.start_date }}</td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+
+<table>
+    <h2>Tracks</h2>
+    <th scope="col" style="background-color:#96D1CD;"><a>Name</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Laps</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Length</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Lap Record</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Sector 1</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Sector 2</a></th>
+    <th scope="col" style="background-color:#96D1CD;"><a>Sector 3</a></th>
+    <tbody>
+    {% if latest_track_list %}
+        {% for track in latest_track_list %}
+            <tr>
+                <th scope="row">{{ track.name_text }}</th>
+                <td>{{ track.laps }}</td>
+                <td>{{ track.length }} km</td>
+                <td>{{ track.lapRecord|time:"i:s" }} m</td>
+                <td>{{ track.sector1|time:"i:s" }} s</td>
+                <td>{{ track.sector2|time:"i:s" }} s</td>
+                <td>{{ track.sector3|time:"i:s" }} s</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+</body>
+</html>

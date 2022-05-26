@@ -10,9 +10,9 @@ def index(request):
     return render(request, 'BoschWebsite/index.html')
 
 
-# Details about the Drivers are shown here
-class IndexDetail(generic.DetailView):
-    template_name = 'BoschWebsite/index.html'
+# Create your views here.
+def overview(request):
+    return render(request, 'BoschWebsite/overview.html')
 
 
 # Details about the Drivers are shown here

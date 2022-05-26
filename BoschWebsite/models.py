@@ -1,5 +1,6 @@
+import datetime
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 
 
 # Create your models here.
@@ -21,8 +22,6 @@ class Team(models.Model):
     # Same in admin website when Deleting (http://127.0.0.1:8000/admin/)
     def __str__(self):
         return self.name_text
-
-    # Saving Data of a Driver
 
 
 class Driver(models.Model):
